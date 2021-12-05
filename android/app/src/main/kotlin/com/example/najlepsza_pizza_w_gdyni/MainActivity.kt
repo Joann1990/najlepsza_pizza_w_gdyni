@@ -1,4 +1,4 @@
-package com.example.najlepsza_pizza_w_gdyni
+package com.joannamichalczewska.najlepsza_pizza_w_gdyni
 
 import io.flutter.embedding.android.FlutterActivity
 
