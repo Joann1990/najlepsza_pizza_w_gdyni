@@ -25,20 +25,29 @@ class RestaurantsPageContent extends StatelessWidget {
           return ListView(
             children: [
               for (final document in documents) ...[
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(document['name']),
-                          Text(document['pizza']),
-                        ],
-                      ),
-                      Text(document['rating'].toString()),
-                    ],
+                Dismissible(
+                  key: ValueKey(document.id),
+                  onDismissed: (_) {
+                    FirebaseFirestore.instance
+                        .collection('restaurants')
+                        .doc(document.id)
+                        .delete();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(document['name']),
+                            Text(document['pizza']),
+                          ],
+                        ),
+                        Text(document['rating'].toString()),
+                      ],
+                    ),
                   ),
                 ),
               ],
