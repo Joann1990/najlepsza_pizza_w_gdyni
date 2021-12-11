@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Najlepsza pizza w Gdyni'),
+        backgroundColor: Colors.blueAccent,
       ),
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
@@ -45,6 +46,9 @@ class _HomePageState extends State<HomePage> {
             currentIndex = newIndex;
           });
         },
+        backgroundColor: Colors.blueAccent,
+        selectedItemColor: Colors.lime,
+        unselectedItemColor: Colors.black,
         items: const [
           BottomNavigationBarItem(
               icon: Icon(
