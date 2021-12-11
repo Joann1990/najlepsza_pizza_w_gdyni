@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:najlepsza_pizza_w_gdyni/app/home/add_opinion/add_opinion_page_content.dart';
 import 'package:najlepsza_pizza_w_gdyni/app/home/my_account/my_account_page_content.dart';
 import 'package:najlepsza_pizza_w_gdyni/app/home/restaurants/restaurants_page_content.dart';
@@ -22,7 +23,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Najlepsza pizza w Gdyni'),
+        title: Text(
+          'Najlepsza pizza w Gdyni',
+          style: GoogleFonts.pacifico(),
+        ),
         backgroundColor: Colors.blueAccent,
       ),
       body: Builder(builder: (context) {

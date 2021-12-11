@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyAccountPageContent extends StatelessWidget {
   const MyAccountPageContent({
@@ -15,12 +16,20 @@ class MyAccountPageContent extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text(
+            'Witaj miłośniku pizzy!',
+            style: GoogleFonts.lato(fontSize: 20),
+          ),
+          const SizedBox(height: 50),
           const Image(
             image: AssetImage('images/ILovePizza.jpeg'),
             width: 200,
           ),
           const SizedBox(height: 30),
-          Text('Jesteś zalogowany jako $email'),
+          Text(
+            'Jesteś zalogowany jako $email',
+            style: GoogleFonts.alice(fontSize: 40),
+          ),
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {

@@ -61,6 +61,7 @@ class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
               label: rating.toString(),
               thumbColor: Colors.amber,
               activeColor: Colors.amber,
+              inactiveColor: Colors.black,
             ),
             ElevatedButton(
               onPressed: restaurantName.isEmpty || pizzaName.isEmpty
