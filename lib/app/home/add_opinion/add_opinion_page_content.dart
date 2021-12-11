@@ -26,6 +26,11 @@ class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Image(
+              image: AssetImage('images/pizza-pepperoni.jpeg'),
+              width: 400,
+            ),
+            const SizedBox(height: 50),
             TextField(
               decoration:
                   const InputDecoration(hintText: 'Podaj nazwę restauracji'),
@@ -54,6 +59,8 @@ class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
               max: 6.0,
               divisions: 10,
               label: rating.toString(),
+              thumbColor: Colors.amber,
+              activeColor: Colors.amber,
             ),
             ElevatedButton(
               onPressed: restaurantName.isEmpty || pizzaName.isEmpty

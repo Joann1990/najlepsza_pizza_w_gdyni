@@ -15,6 +15,11 @@ class MyAccountPageContent extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Image(
+            image: AssetImage('images/ILovePizza.jpeg'),
+            width: 200,
+          ),
+          const SizedBox(height: 30),
           Text('Jesteś zalogowany jako $email'),
           const SizedBox(height: 20),
           ElevatedButton(
