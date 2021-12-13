@@ -22,36 +22,39 @@ class RestaurantsPageContent extends StatelessWidget {
             return const Center(child: Text("Loading"));
           }
           final documents = snapshot.data!.docs;
-          return ListView(
-            children: [
-              for (final document in documents) ...[
-                Dismissible(
-                  key: ValueKey(document.id),
-                  onDismissed: (_) {
-                    FirebaseFirestore.instance
-                        .collection('restaurants')
-                        .doc(document.id)
-                        .delete();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(document['name']),
-                            Text(document['pizza']),
-                          ],
-                        ),
-                        Text(document['rating'].toString()),
-                      ],
+          return Container(
+            color: Colors.grey,
+            child: ListView(
+              children: [
+                for (final document in documents) ...[
+                  Dismissible(
+                    key: ValueKey(document.id),
+                    onDismissed: (_) {
+                      FirebaseFirestore.instance
+                          .collection('restaurants')
+                          .doc(document.id)
+                          .delete();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(document['name']),
+                              Text(document['pizza']),
+                            ],
+                          ),
+                          Text(document['rating'].toString()),
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                ],
               ],
-            ],
+            ),
           );
         });
   }
