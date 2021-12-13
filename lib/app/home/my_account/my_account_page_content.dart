@@ -20,7 +20,8 @@ class MyAccountPageContent extends StatelessWidget {
           children: [
             Text(
               'Witaj miłośniku pizzy!',
-              style: GoogleFonts.lato(fontSize: 20),
+              style:
+                  GoogleFonts.lato(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 50),
             const Image(
