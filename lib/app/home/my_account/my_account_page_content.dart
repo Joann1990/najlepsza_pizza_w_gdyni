@@ -12,32 +12,35 @@ class MyAccountPageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Witaj miłośniku pizzy!',
-            style: GoogleFonts.lato(fontSize: 20),
-          ),
-          const SizedBox(height: 50),
-          const Image(
-            image: AssetImage('images/ILovePizza.jpeg'),
-            width: 200,
-          ),
-          const SizedBox(height: 30),
-          Text(
-            'Jesteś zalogowany jako $email',
-            style: GoogleFonts.alice(fontSize: 40),
-          ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-            },
-            child: const Text('Wyloguj'),
-          ),
-        ],
+    return Container(
+      color: Colors.lime,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Witaj miłośniku pizzy!',
+              style: GoogleFonts.lato(fontSize: 20),
+            ),
+            const SizedBox(height: 50),
+            const Image(
+              image: AssetImage('images/ILovePizza.jpeg'),
+              width: 200,
+            ),
+            const SizedBox(height: 30),
+            Text(
+              'Jesteś zalogowany jako $email',
+              style: GoogleFonts.alice(),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+              },
+              child: const Text('Wyloguj'),
+            ),
+          ],
+        ),
       ),
     );
   }
