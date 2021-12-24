@@ -7,8 +7,10 @@ part 'restaurants_state.dart';
 class RestaurantsCubit extends Cubit<RestaurantsState> {
   RestaurantsCubit()
       : super(
-          RestaurantsState(
-            documents: const [],
+          const RestaurantsState(
+            documents: [],
+            errorMessage: '',
+            isLoading: false,
           ),
         );
 }
