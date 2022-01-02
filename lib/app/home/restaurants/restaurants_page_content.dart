@@ -11,7 +11,7 @@ class RestaurantsPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RestaurantsCubit(),
+      create: (context) => RestaurantsCubit()..start(),
       child: BlocBuilder<RestaurantsCubit, RestaurantsState>(
         builder: (context, state) {
           if (state.errorMessage.isNotEmpty) {

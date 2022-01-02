@@ -13,4 +13,24 @@ class RestaurantsCubit extends Cubit<RestaurantsState> {
             isLoading: false,
           ),
         );
+
+  Future<void> start() async {
+    emit(
+      const RestaurantsState(
+        documents: [],
+        errorMessage: '',
+        isLoading: true,
+      ),
+    );
+
+    await Future.delayed(const Duration(seconds: 5));
+
+    emit(
+      const RestaurantsState(
+        documents: [],
+        errorMessage: 'Błąd połączenia',
+        isLoading: false,
+      ),
+    );
+  }
 }
