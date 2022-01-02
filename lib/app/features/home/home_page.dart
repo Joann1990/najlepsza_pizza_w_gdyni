@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:najlepsza_pizza_w_gdyni/app/home/add_opinion/add_opinion_page_content.dart';
-import 'package:najlepsza_pizza_w_gdyni/app/home/my_account/my_account_page_content.dart';
-import 'package:najlepsza_pizza_w_gdyni/app/home/restaurants/restaurants_page_content.dart';
+import 'package:najlepsza_pizza_w_gdyni/app/features/home/add_opinion/add_opinion_page_content.dart';
+import 'package:najlepsza_pizza_w_gdyni/app/features/home/my_account/my_account_page_content.dart';
+import 'package:najlepsza_pizza_w_gdyni/app/features/home/restaurants/restaurants_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
