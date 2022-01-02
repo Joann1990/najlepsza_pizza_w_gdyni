@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
@@ -13,6 +15,7 @@ class RestaurantsCubit extends Cubit<RestaurantsState> {
             isLoading: false,
           ),
         );
+  StreamSubscription? _streamSubscription;
 
   Future<void> start() async {
     emit(
@@ -23,14 +26,33 @@ class RestaurantsCubit extends Cubit<RestaurantsState> {
       ),
     );
 
-    await Future.delayed(const Duration(seconds: 5));
+    _streamSubscription = FirebaseFirestore.instance
+        .collection('restaurants')
+        .orderBy('rating', descending: true)
+        .snapshots()
+        .listen((data) {
+      emit(
+        RestaurantsState(
+          documents: data.docs,
+          isLoading: false,
+          errorMessage: '',
+        ),
+      );
+    })
+      ..onError((error) {
+        emit(
+          RestaurantsState(
+            documents: const [],
+            isLoading: false,
+            errorMessage: error.toString(),
+          ),
+        );
+      });
+  }
 
-    emit(
-      const RestaurantsState(
-        documents: [],
-        errorMessage: 'Błąd połączenia',
-        isLoading: false,
-      ),
-    );
+  @override
+  Future<void> close() {
+    _streamSubscription?.cancel();
+    return super.close();
   }
 }

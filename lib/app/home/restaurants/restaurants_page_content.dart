@@ -58,13 +58,6 @@ class RestaurantsPageContent extends StatelessWidget {
               ],
             ),
           );
-
-          return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-              stream: FirebaseFirestore.instance
-                  .collection('restaurants')
-                  .orderBy('rating', descending: true)
-                  .snapshots(),
-              builder: (context, snapshot) {});
         },
       ),
     );
